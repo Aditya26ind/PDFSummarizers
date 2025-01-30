@@ -1,0 +1,3 @@
+django
+pypdf2
+ollama

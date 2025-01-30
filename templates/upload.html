@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Summarizer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-md mx-auto bg-white rounded-lg shadow-lg p-6">
+            <h1 class="text-2xl font-bold mb-6 text-center text-gray-800">PDF Summarizer</h1>
+            <form method="post" enctype="multipart/form-data" class="space-y-4">
+                {% csrf_token %}
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">
+                        {{ form.pdf_file.label }}
+                    </label>
+                    {{ form.pdf_file }}
+                    {% if form.pdf_file.help_text %}
+                        <p class="text-sm text-gray-500">{{ form.pdf_file.help_text }}</p>
+                    {% endif %}
+                </div>
+                <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200">
+                    Generate Summary
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
